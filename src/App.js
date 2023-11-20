@@ -1,23 +1,40 @@
-import logo from './logo.svg';
+
 import './App.css';
+import ProductContext from './components/context/ProductContext';
+import Csenter from './components/navbar/Csenter';
+import FormCenter from './components/navbar/FormCenter';
+import Header from "./components/navbar/Header"
+import AddProductForm from './components/product/AddProduct';
+import ListProduct from './components/product/ListProduct';
+// import ProductCard from './components/product/ProductCard';
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ProductContext>
+        <Header/>
+        <Csenter/>
+       <FormCenter/>
+       {/* <FormCenter/> */}
+        <AddProductForm/>
+     <ListProduct/>
+    
+    
+
+     
+   
+   
+
+
+        
+      
+        
+
+       
+      </ProductContext>
+    
+     
     </div>
   );
 }
