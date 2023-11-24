@@ -20,7 +20,7 @@ const ProductCard = ({ item }) => {
   };
 
   return (
-    <Card sx={{ minWidth: 275, marginBottom: 16 }}>
+    <Card sx={{ minWidth: 275, marginBottom: 16, backgroundColor: item.category === 'free' ? '#7FFF7F' : 'white' }}>
       <CardMedia
         component="img"
         height="140"
@@ -35,7 +35,6 @@ const ProductCard = ({ item }) => {
         <Typography color="text.secondary">{item.description}</Typography>
         <Typography color="text.secondary">Category: {item.category}</Typography>
         <Typography color="text.secondary">Price: ${item.price}</Typography>
-        {/* Добавьте другие поля продукта, если необходимо */}
         <br />
         <Button onClick={() => handleEdit(item.id)} variant="contained" color="primary" sx={{ marginRight: 2 }}>
           Download
@@ -43,6 +42,7 @@ const ProductCard = ({ item }) => {
         <Button onClick={() => handleDelete(item.id)} variant="contained" color="error">
           Delete
         </Button>
+        <Button>Edit</Button>
       </CardContent>
     </Card>
   );

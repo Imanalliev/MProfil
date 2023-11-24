@@ -1,13 +1,15 @@
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer, useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ACTION_PRODUCT, API_PRODUCTS } from "../../helpers/Const";
 
 const INIT_STATE = {
+  allProducts: [],
   product: [],
   oneProduct: null,
   productsTotalCount: 0,
 };
+
 
 const productContext = createContext();
 export const useProducts = () => useContext(productContext);
@@ -19,7 +21,7 @@ const ProductContext = ({ children }) => {
   const reducer = (state, action) => {
     switch (action.type) {
       case ACTION_PRODUCT.GET_PRODUCTS:
-        return { ...state, product: action.payload.data };
+        return { ...state, product: action.payload.data, allProducts: action.payload.data };
       case ACTION_PRODUCT.GET_ONE_PRODUCTS:
         return { ...state, oneProduct: action.payload };
       default:
@@ -36,6 +38,15 @@ const ProductContext = ({ children }) => {
     } catch (error) {
       console.log("error", error);
     }
+  }
+
+  function fetchByParams(param, value) {
+    // Логика для выполнения поиска на стороне клиента
+    const filteredProducts = state.allProducts.filter((product) =>
+      product[param].toLowerCase().includes(value.toLowerCase())
+    );
+
+    dispatch({ type: ACTION_PRODUCT.GET_PRODUCTS, payload: filteredProducts });
   }
 
   async function getProduct() {
@@ -75,6 +86,10 @@ const ProductContext = ({ children }) => {
     const url = `${location.pathname}?${filterSerarchParams.toString()}`;
     navigate(url);
   }
+
+  useEffect(() => {
+    getProduct(); // Загрузка продуктов при монтировании контекста
+  }, []);
 
   const values = {
     fetchByParams,

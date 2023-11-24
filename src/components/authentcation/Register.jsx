@@ -1,16 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import GoogleIcon from "@mui/icons-material/Google";
+import { useAuthContext } from "../context/AuthContext";
+import { Alert } from "antd";
+
 
 const Register = () => {
+  const { signInWithGoogle, register } = useAuthContext();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  async function handleSubmit() {
+    try {
+      await register(email, password);
+    } catch (error) {
+      setError(error.message);
+    }
+  }
+
   return (
+    
     <div
       style={{
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
         height: "70vh",
+
       }}
     >
+    
+      {error && <Alert severity="ERROR">{error}</Alert>}
       <div
         style={{
           display: "flex",
@@ -19,6 +40,8 @@ const Register = () => {
           width: "300px",
         }}
       >
+        
+     
         <h1>Sign up</h1>
         <input
           style={{
@@ -28,6 +51,7 @@ const Register = () => {
           }}
           type="email"
           placeholder="Email"
+          onChange={(e) => setEmail(e.target.value)}
         />
         <input
           style={{
@@ -37,6 +61,7 @@ const Register = () => {
           }}
           type="password"
           placeholder="Password"
+          onChange={(e) => setPassword(e.target.value)}
         />
         <button
           style={{
@@ -46,8 +71,9 @@ const Register = () => {
             height: "30px",
             margin: "15px auto",
           }}
+          onClick={handleSubmit}
         >
-          Sign up
+          Войти
         </button>
         <button
           style={{
@@ -59,10 +85,13 @@ const Register = () => {
             alignItems: "center",
             justifyContent: "center",
           }}
+          onClick={() => signInWithGoogle().catch((error) => setError(error.message))}
         >
-          Sign in with Google
+          Регистраться
           <GoogleIcon sx={{ marginLeft: "5px" }} />
         </button>
+       
+       
       </div>
     </div>
   );

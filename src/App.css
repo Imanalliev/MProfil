@@ -1,63 +1,183 @@
-*{
-  margin: 0 auto;
+* {
+  margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
-font-family: 'Kdam Thmor Pro', sans-serif;
-font-family: 'Lora', serif;
-font-family: 'Merriweather', serif;
-font-family: 'Oxygen', sans-serif;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif; 
+  
+  
+}
 
+body {
+ 
+  background-position: center; 
+  height: 650px;  
+ 
 }
-body{
-  background-color: rgba(77, 204, 235, 0.858); 
-}
-.container{
+
+.container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0;
+  padding: 1%;
 }
-.row{
-  background-color: rgba(77, 204, 235, 0.858);
+
+.row {
+  box-shadow: 19px 14px 38px rgba(0, 0, 0, 0.1); 
+  
+  /* background-image: url("./components/navbar/image/pngegg\ \(1\).png"); */
+  background-color: rgba(10, 60, 99, 0.858); /* Более темный синий цвет */
+  height: 100px;
+  background-position: center; 
+ 
+  display: flex;
+  align-items: center;
+ 
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.row a {
+  text-decoration: none;
+  color: #fff;
+  margin-right: 20px;
+}
+
+/* Добавим стили для кнопок внутри .row */
+.row button {
+  background-color: aqua;
+  border: none;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.row button:last-child {
+  background-color: transparent;
+  border: 1px solid #fff;
+  margin-right: 20px;
+}
+.premium {
+  background-color: #0cb3eb96; /* Цвет фона кнопки */
+  color: #ffffff; /* Цвет текста кнопки */
+  font-size: 16px; /* Размер шрифта */
+  border: none; /* Убираем границу кнопки */
+  cursor: pointer; /* Устанавливаем стиль указателя при наведении */
+  outline: none; /* Убираем контур при активации */
+  transition: background-color 0.3s; /* Анимация при изменении цвета фона */
+
+  width: 200px;
   height: 50px;
 }
-a{
+
+/* Изменение цвета фона при наведении на кнопку */
+.premium:hover {
+  background-color: #bd353e;
+}
+
+a {
   text-decoration: none;
   color: #fff;
 }
-.comand{
+
+.comand {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
-#twos{
-  height: 610px;
-  background-image: url('./components/navbar/image/165542-ekstremalnyj_vid_sporta-oblako-voda-parashyut-otdyx-3840x2160.jpg'); 
-  background-size: cover; 
-  background-repeat: no-repeat; 
- /* height: 700px; */
- width: auto;
- box-shadow: inset 50px 1000px 100px #0000009d, inset -50px -50px 100px #0000005c;
+
+#twos {
+  /* background-image: url("./components/navbar/image/img1.akspic.ru-nebo-video-kompyuternaya_igra-turizm-ubijca-7680x4320.jpg"); */
+  background-size: cover; /* Растянуть изображение по размеру контейнера */
+  background-position: center; /* Выровнять изображение по центру */
+  height: 650px;  
+  background-color: #fff;
  
 }
-.center{
-  background-color: rgba(77, 204, 235, 0.858);
-  height: 50px;
+.btnopen{
+   
+   background-image: url("./components/navbar/image/pngegg.png");
+   background-size: cover; 
+   background-position: center; 
+   width: 140px;
+   height: 50px;
+   text-decoration: none;
+   border-radius: 30px;
 }
-.params{
-  background-image: url('./components/navbar/image/MiU2NP5RxiuB4VdwAZbJlQ.jpeg'); 
-  background-color: rgba(0, 0, 0, 0.661);
-  background-size: cover; 
-  background-repeat: no-repeat; 
-  width: auto;
-  box-shadow: inset 50px 1000px 100px #00000030, inset -50px -50px 100px #0000005c;
-  height: 1300px;
+.center {
+  background-color: rgba(36, 113, 163, 0.858); /* Более темный синий цвет */
+  height: 80px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
-}
-.parad{
-  background-image: url('./components/navbar/image/GTA5_Grand_Theft_Auto_Grand_Theft_Auto_V_Los_Santos_NaturalVision_Evolved_modding-1770073.jpg'); 
-  background-size: cover; 
-  background-repeat: no-repeat; 
+.params {
+  /* background-color: rgba(240, 240, 244, 0.661); */
   width: auto;
-  box-shadow: inset 50px 1000px 100px #00000030, inset -50px -50px 100px #0000005c;
-  height: auto;
+  height: 1300px;
+  padding: 20px;
 }
+.game-description {
+  font-size: 20px;
+  color: fff;
+  width: 500px;
+  /* Добавьте другие стили по необходимости */
+}
+
+.parad {
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: auto;
+  box-shadow: inset 100px 100px 100px #000000ca, inset 100px 100px 100px #000000ab;
+  height: auto;
+  padding: 20px;
+}
+
+/* Добавим стили для анимации и эффектов при наведении */
+
+a:hover {
+  color: #ffd700; /* Цвет при наведении */
+  transition: color 0.3s ease-in-out; /* Плавное изменение цвета в течение 0.3 секунды */
+}
+
+.row:hover {
+  background-color: rgb(138, 4, 6); /* Цвет при наведении */
+  transition: background-color 0.3s ease-in-out; /* Плавное изменение цвета фона в течение 0.3 секунды */
+}
+
+#twos:hover {
+  transform: scale(1.02); /* Увеличение элемента при наведении */
+  transition: transform 0.3s ease-in-out; /* Плавное изменение масштаба в течение 0.3 секунды */
+}
+
+.center:hover {
+  background-color: rgba(3, 37, 45, 0.658); /* Цвет при наведении */
+  transition: background-color 0.3s ease-in-out; /* Плавное изменение цвета фона в течение 0.3 секунды */
+}
+
+.params:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень при наведении */
+  transition: box-shadow 0.3s ease-in-out; /* Плавное изменение тени в течение 0.3 секунды */
+}
+
+.parad:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень при наведении */
+  transition: box-shadow 0.3s ease-in-out; /* Плавное изменение тени в течение 0.3 секунды */
+}
+/* CSS */
+@keyframes breathing {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px); /* Измените высоту подъема по вашему желанию */
+  }
+}
+
+.breathing-img {
+  animation: breathing 3s ease-in-out infinite; /* Измените продолжительность и параметры анимации по вашему желанию */
+}
+

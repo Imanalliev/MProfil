@@ -1,12 +1,14 @@
 
+import Search from 'antd/es/input/Search';
 import './App.css';
 import ProductContext from './components/context/ProductContext';
 import Csenter from './components/navbar/Csenter';
 import FormCenter from './components/navbar/FormCenter';
 import Header from "./components/navbar/Header"
-import AddProductForm from './components/product/AddProduct';
+// import AddProductForm from './components/product/AddProduct';
+// import EditProduct from './components/product/EditProduct';
 import ListProduct from './components/product/ListProduct';
-// import ProductCard from './components/product/ProductCard';
+
 
 
 function App() {
@@ -16,8 +18,6 @@ function App() {
         <Header/>
         <Csenter/>
        <FormCenter/>
-       {/* <FormCenter/> */}
-        <AddProductForm/>
      <ListProduct/>
     
     
